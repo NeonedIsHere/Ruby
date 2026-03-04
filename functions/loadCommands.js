@@ -11,7 +11,7 @@ async function loadCommands(dir, client) {
         const stat = fs.statSync(fullPath)
 
         if (stat.isDirectory()) {
-            loadCommand(fullPath, client)
+            loadCommands(fullPath, client)
         } else if (file.endsWith('.js')) {
             const command = require(fullPath)
 

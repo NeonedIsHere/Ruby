@@ -57,6 +57,7 @@ require('./handlers/commands.js')(client)
 require('./handlers/events.js')(client)
 require('./handlers/anticrash.js')(client)
 require('./handlers/components.js')(client)
+require('./handlers/slash.js')(client)
 
 client.login(process.env.TOKEN)
     .catch((err) => console.error(`Erreur lors de la connection au bot`, err.stack))
