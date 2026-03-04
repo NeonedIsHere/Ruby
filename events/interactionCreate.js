@@ -1,4 +1,4 @@
-const { Events, InteractionType, MessageFlags } = require('discord.js');
+const { Events, InteractionType, MessageFlags, InteractionContextType } = require('discord.js');
 
 module.exports = {
     name: Events.InteractionCreate,
@@ -16,18 +16,21 @@ module.exports = {
                     });
                 }
 
-                const isDM = !interaction.inGuild()
-                const context = command.contexts || ["DM", "GUILD"]
+                const context = command.contexts ?? [
+                    InteractionContextType.BotDM,
+                    InteractionContextType.Guild,
+                    InteractionContextType.PrivateChannel
+                ]
 
-                if (isDM && !context.includes("DM")) {
+                if (!context.includes(interaction.context)) {
+                    const isDm = 
+                        InteractionContextType.BotDM ||
+                        InteractionContextType.PrivateChannel
+
                     return interaction.reply({
-                        content: `Cette commande n'est pas disponible en DM.`,
-                        flags: MessageFlags.Ephemeral
-                    });
-                }
-                if (!isDM && !context.includes("GUILD")) {
-                    return interaction.reply({
-                        content: `Cette commande n'est pas disponible dans les serveurs.`,
+                        content: isDm
+                            ? "Cette commande n'est pas disponible en DM."
+                            : "Cette commande n'est pas disponible dans les serveurs.",
                         flags: MessageFlags.Ephemeral
                     });
                 }
