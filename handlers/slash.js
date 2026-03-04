@@ -1,5 +1,5 @@
 const { REST, Routes } = require("discord.js")
-const buildCommands = require("../functions/buildcommands")
+const buildCommands = require("../functions/buildCommands")
 
 module.exports = async (client) => {
     const commands = client.commands.map(command => {
