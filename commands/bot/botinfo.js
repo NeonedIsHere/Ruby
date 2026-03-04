@@ -27,22 +27,22 @@ module.exports = {
             .setAccentColor(0x5865F2)
             .addTextDisplayComponents(
                 new TextDisplayBuilder()
-                    .setContent(`## 🤖 ${client.user.username}`)
+                    .setContent(`## ${client.user.username}`)
             )
             .addSeparatorComponents(new SeparatorBuilder())
             .addTextDisplayComponents(
                 new TextDisplayBuilder().setContent(
-`🆔 **ID :** \`${client.user.id}\`
-📅 **Création :** <t:${Math.floor(client.user.createdTimestamp / 1000)}:F>
-⏳ **En ligne depuis :** \`${formattedUptime}\`
+` **ID :** \`${client.user.id}\`
+ **Création :** <t:${Math.floor(client.user.createdTimestamp / 1000)}:F>
+ **En ligne depuis :** \`${formattedUptime}\`
 
-🌍 **Serveurs :** \`${client.guilds.cache.size}\`
-👥 **Utilisateurs :** \`${client.users.cache.size}\`
-📁 **Salons :** \`${client.channels.cache.size}\`
+ **Serveurs :** \`${client.guilds.cache.size}\`
+ **Utilisateurs :** \`${client.users.cache.size}\`
+ **Salons :** \`${client.channels.cache.size}\`
 
-💾 **Mémoire :** \`${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} MB\`
-🟢 **Node.js :** \`${process.version}\`
-📦 **Version :** \`1.0.0\``
+ **Mémoire :** \`${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} MB\`
+ **Node.js :** \`${process.version}\`
+ **Version :** \`1.0.0\``
                 )
             )
 
