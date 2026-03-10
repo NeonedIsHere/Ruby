@@ -35,7 +35,7 @@ module.exports = {
 
         if (user.id === interaction.user.id) {
             const embed = new EmbedBuilder()
-                .setColor('#ff5500')
+                .setColor('#ff0000')
                 .setDescription('\`❌\` Vous ne pouvez pas vous auto-sanctionner')
 
             return interaction.reply({ embeds: [embed], flags: MessageFlags.Ephemeral })
