@@ -35,7 +35,7 @@ module.exports = {
 
         if (user.id === interaction.user.id) {
             const embed = new EmbedBuilder()
-                .setColor('#ff0000')
+                .setColor('#ff5500')
                 .setDescription('\`❌\` Vous ne pouvez pas vous auto-sanctionner')
 
             return interaction.reply({ embeds: [embed], flags: MessageFlags.Ephemeral })
@@ -93,7 +93,7 @@ module.exports = {
 
         const embed = new EmbedBuilder()
             .setColor("#00FF00")
-            .setDescription(`${user} à été warn pour la raison: \`${reason}\``)
+            .setDescription(`${user} à été warn pour: \`${reason}\``)
 
         return interaction.reply({ embeds: [embed], flags: MessageFlags.Ephemeral })
     }
